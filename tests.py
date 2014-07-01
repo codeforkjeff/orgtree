@@ -66,6 +66,7 @@ class OrgTreeTest(TestCase):
 
 
     def dump(self):
+        """ dump data from database, for debugging tests """
         for org in Organization.objects.all().order_by("id"):
             print org.id, org.name
 
