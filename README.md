@@ -15,7 +15,7 @@ Installation
 
 This code is best used for illustration/experimentation purposes, so you can adapt it to your own uses. But you can easily install it as a self-contained Django app to play with it and see how it works.
 
-If you don't already have a Django project, make one:
+If you don't already have a Django project in which to stick this app, make one:
 
     django-admin.py startproject orgtreeproj
 
