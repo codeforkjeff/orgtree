@@ -43,6 +43,10 @@ Edit your settings file (in our case, orgtreeproject/settings.py) and add orgtre
         'orgtree',
     )
 
+Finally, run syncdb to create tables for the app's models.
+
+    ./manage.py syncdb
+
 Now you are ready to use the models in your own app. It's useful to look at the test suite and experiment with that code as well:
 
     ./manage.py test orgtree
