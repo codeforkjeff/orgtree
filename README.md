@@ -6,7 +6,9 @@ Django app demonstrating an organization tree implemented using a closure table 
 Background
 ----------
 
-A good discussion of closure tables can be found in Bill Karwin's book, [SQL Antipatterns](http://pragprog.com/book/bksqla/sql-antipatterns). In a nutshell, this design makes it particularly easy to fetch a subtree in a single query. In contrast, the more typical "naive" approach of storing a foreign key to the node's parent in each record requires recursion and a query per node traversal. Closure tables are much more performant for deep trees, the main drawback being the large table containing all ancestor-descendent relationships.
+A good discussion of closure tables can be found in Bill Karwin's book, [SQL Antipatterns](http://pragprog.com/book/bksqla/sql-antipatterns). An article by Vipin Raj on this design can also be found [here](http://http://technobytz.com/closure_table_store_hierarchical_data.html).
+
+In a nutshell, this design makes it particularly easy to fetch a subtree in a single query. In contrast, the more typical "naive" approach of storing a foreign key to the node's parent in each record requires recursion and a query per node traversal. Closure tables are much more performant for deep trees, the main drawback being the large table containing all ancestor-descendent relationships.
 
 The code in this repository is a simplified, more generic version of code I wrote for a work project. It doesn't contain any views or user interfaces, only a models.py file and tests.py to demonstrate usage.
 
