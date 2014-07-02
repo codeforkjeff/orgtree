@@ -6,7 +6,7 @@ Django app demonstrating an organization tree implemented using a closure table 
 Background
 ----------
 
-A good discussion of closure tables can be found in Bill Karwin's book, [SQL Antipatterns](http://pragprog.com/book/bksqla/sql-antipatterns). In a nutshell, this design makes it easy to fetch a subtree in a single query, without having to use recursion, as is the case with the more typical "naive" approach of storing a foreign key to a parent in each node record. This is highly performant for deep trees, although there are drawbacks as well (namely, having to maintain a large table containing all ancestor-descendent relationships).
+A good discussion of closure tables can be found in Bill Karwin's book, [SQL Antipatterns](http://pragprog.com/book/bksqla/sql-antipatterns). In a nutshell, this design makes it particularly easy to fetch a subtree in a single query. In contrast, the more typical "naive" approach of storing a foreign key to the node's parent in each record requires recursion and a query per node traversal. Closure tables are much more performant for deep trees, the main drawback being the large table containing all ancestor-descendent relationships.
 
 The code in this repository is a simplified, more generic version of code I wrote for a work project. It doesn't contain any views or user interfaces, only a models.py file and tests.py to demonstrate usage.
 
@@ -14,7 +14,7 @@ The code in this repository is a simplified, more generic version of code I wrot
 Installation
 ------------
 
-This code is best used for illustration/experimentation purposes, so you can adapt it to your own uses. But you can easily install it as a self-contained Django app to play with it and see how it works.
+It's easy and quick to install this code as a Django app and use it or experiment with it, but this repository is intended primarily to be an illustration of how an unusual database design can be implemented within the Django framework. It's not meant to be a full-featured app, so if you use it for any serious projects, you should expect to have to adapt it to your own purposes.
 
 If you don't already have a Django project in which to stick this app, make one:
 
@@ -41,6 +41,6 @@ Edit your settings file (in our case, orgtreeproject/settings.py) and add orgtre
         'orgtree',
     )
 
-Now you can use the code in your own app. It's useful to run the test suite and experiment with that code as well:
+Now you are ready to use the models in your own app. It's useful to look at the test suite and experiment with that code as well:
 
     ./manage.py test orgtree
